@@ -28,7 +28,7 @@ function Search() {
         />
       </div>
       <Data input={inputText} />
-      <ListData input={inputText} />
+      {/* <ListData input={inputText} /> */}
     </div>
   );
 }

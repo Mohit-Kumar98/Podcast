@@ -1,0 +1,9 @@
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.inline-icon {
+    vertical-align: bottom;
+    font-size: 18px !important;
+ }

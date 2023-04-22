@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TextField from "@mui/material/TextField";
 import Data from './Data'
 import "./Search.css";
+import { GlobalContext } from '../../context/GlobalState';
+
 function Search() {
   const [inputText, setInputText] = useState("");
+  const context=useContext(GlobalContext);
+  const {setInput}=context;
+
   let inputHandler = (e) => {
     //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
+    setInput(lowerCase);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer, useEffect, useState } from "react"; 
 import { AppReducer } from "./AppReducer";
 
 // initial value of store
@@ -6,13 +6,13 @@ const initialState = {
     watchlist: localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [],
     watched: localStorage.getItem("watched") ? JSON.parse(localStorage.getItem("watched")) : [],
 };
-
 // create context
 export const GlobalContext = createContext(initialState);
 
 // provider components
 export const GlobalProvider = (props) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+    const [input,setInput] = useState("");
 
     // saving to local storage
     useEffect(() => {
@@ -44,6 +44,8 @@ export const GlobalProvider = (props) => {
             removeFromWatchList,
             addToWatchedList,
             removeFromWatchedList,
+            input,
+            setInput
             // dispatch,  //we can directly pass the diaptch function also instead of creating functions for individual actions like addMovieToWatchList()
         }}>
             {props.children}

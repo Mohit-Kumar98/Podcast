@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextField from "@mui/material/TextField";
 import Data from './Data'
 import "./Search.css";
+import ListData from '../ListF/ListData';
 
 
 
@@ -27,6 +28,7 @@ function Search() {
         />
       </div>
       <Data input={inputText} />
+      <ListData input={inputText} />
     </div>
   );
 }

@@ -35,9 +35,9 @@ function App() {
         <GlobalProvider>
         <Header user={user} onLogout={handleLogout} />
         <Search/>
-       <List/>
-       <List/>
-       <List/>
+        {/* <List/>
+        <List/>
+        <List/> */}
         <Routes>
           {/* <Route exact path="/" element={ <ListenList />} /> */}
           <Route path="/listened" element={<Listened />} />

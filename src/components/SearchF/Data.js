@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import data from "./ListData"
 
+
 function Data(props) {
     //create a new array by filtering the original array
     const filteredData = data.filter((el) => {
@@ -17,6 +18,7 @@ function Data(props) {
             ))}
         </ul>
     )
+   
 }
 
 export default Data

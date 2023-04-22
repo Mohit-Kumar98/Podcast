@@ -5,7 +5,7 @@ import { GlobalContext } from '../context/GlobalState';
 import ProductionCompanies from './ProductionCompanies';
 
 const PodCastSummary = () => {
-    const { watchlist, addMovieToWatchList, removeMovieFromWatchList } = useContext(GlobalContext);
+    const { watchlist, addToWatchList, removeFromWatchList } = useContext(GlobalContext);
 
     const [movieSummary, setMovieSummary] = useState([]);
 
@@ -38,9 +38,9 @@ const PodCastSummary = () => {
     // console.log("before func: " + alreadyInWatchlist);
     const watchlistHandler = () => {
         if (!alreadyInWatchlist) {
-            addMovieToWatchList(movieSummary);
+            addToWatchList(movieSummary);
         } else {
-            removeMovieFromWatchList(movieSummary.id)
+            removeFromWatchList(movieSummary.id)
         }
         // console.log("inside func: " + alreadyInWatchlist);
     }
@@ -85,7 +85,7 @@ const PodCastSummary = () => {
                                 (
                                     <button className="btn"
                                         // disabled={watchlistDisabled}
-                                        onClick={() => removeMovieFromWatchList(movieSummary.id)}
+                                        onClick={() => removeFromWatchList(movieSummary.id)}
                                     >
                                         <i className="fas fa-star" style={{ color: "gold" }} title='Add To ListenList'></i>
                                     </button>
@@ -93,7 +93,7 @@ const PodCastSummary = () => {
                                 :
                                 (
                                     <button className="btn"
-                                        onClick={() => addMovieToWatchList(movieSummary)}
+                                        onClick={() => addToWatchList(movieSummary)}
                                     >
                                         <i class="far fa-star" style={{ color: "#fff" }}></i>
                                     </button>
@@ -135,8 +135,8 @@ const PodCastSummary = () => {
                             }
                             <div className="movie-details-rating-grp">
                                 <div className="movie-details-vote">
-                                    <span title='Score'>{movieSummary.vote_average != 0 ? movieSummary.vote_average : "?"}/<span className='spanSmall'>10</span></span>
-                                    <span className='spanSmall' title='No of people voted'>⭐{movieSummary.vote_count != 0 ? movieSummary.vote_count : "?"}</span>
+                                    <span title='Score'>{movieSummary.vote_average !== 0 ? movieSummary.vote_average : "?"}/<span className='spanSmall'>10</span></span>
+                                    <span className='spanSmall' title='No of people voted'>⭐{movieSummary.vote_count !== 0 ? movieSummary.vote_count : "?"}</span>
                                 </div>
                                 <div className="movie-details-rating">
                                     <span style={{ width: `${movieSummary.vote_average * 10}px` }}></span>

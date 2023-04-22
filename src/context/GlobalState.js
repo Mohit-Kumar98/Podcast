@@ -22,29 +22,28 @@ export const GlobalProvider = (props) => {
 
     
     // actions
-    const addMovieToWatchList = (movie) => {
-        dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie})
+    const addToWatchList = (movie) => {
+        dispatch({ type: "ADD_TO_WATCHLIST", payload: movie})
     }
 
-    const removeMovieFromWatchList = (id) => {
-        dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id})
+    const removeFromWatchList = (id) => {
+        dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: id})
     }
-
-    const addMovieToWatchedList = (movie) => {
-        dispatch({ type: "ADD_MOVIE_TO_WATCHEDLIST", payload: movie})
+    const addToWatchedList = (movie) => {
+        dispatch({ type: "ADD_TO_WATCHEDLIST", payload: movie})
     }
-    const removeMovieFromWatchedList = (id) => {
-        dispatch({ type: "REMOVE_MOVIE_FROM_WATCHEDLIST", payload: id})
+    const removeFromWatchedList = (id) => {
+        dispatch({ type: "REMOVE_FROM_WATCHEDLIST", payload: id})
     }
 
     return(
         <GlobalContext.Provider value={{ 
             watchlist: state.watchlist, 
             watched: state.watched,
-            addMovieToWatchList: addMovieToWatchList,
-            removeMovieFromWatchList,
-            addMovieToWatchedList,
-            removeMovieFromWatchedList,
+            addToWatchList,
+            removeFromWatchList,
+            addToWatchedList,
+            removeFromWatchedList,
             // dispatch,  //we can directly pass the diaptch function also instead of creating functions for individual actions like addMovieToWatchList()
         }}>
             {props.children}

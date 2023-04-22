@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 const ListItem = ({index, item}) => {
   const [isHovered, setisHovered] = useState(false);
   const [movie, setmovie] = useState({});
+  function Remove()
+  {
+    
+  }
 //   useEffect(() => {
 //     const getMovie = async()=>{
 //       try {
@@ -21,18 +25,15 @@ const ListItem = ({index, item}) => {
   return (
     // <Link to = {'/watch'} state = {{movie : movie}}>
     <div className='listItem' 
-    style={{left:isHovered && index * 225 -50 + index*2.5}}
+    style={{left:isHovered && 3 * 225 -50 + 3*2.5}}
     onMouseEnter={()=>{setisHovered(true)}} onMouseLeave={()=>{setisHovered(false)}}>
       <img src="/img.jpg" alt="flower" />
 
       <div className="itemInfo">
-        <div className="icons">
-          <PlayArrow className='icon'/>
-          <Add className='icon'/>
-          <ThumbUpAltOutlined className='icon'/>
-          <ThumbDownOutlined className='icon'/>
+      <div class="listitemdetails">
+        <nav>Title</nav>  
+        <a onclick="Remove()"><i class="fa-regular fa-star"></i></a>
         </div>
-
         {isHovered && (
          <>
          {/* <video src="" controls autoPlay={true}  loop></video> */}

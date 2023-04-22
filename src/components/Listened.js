@@ -11,18 +11,18 @@ const Listened = () => {
             <div className="movie-page">
                 <div className="container">
                     <div className="header">
-                        <h1 className="heading">Listened Movies</h1>
+                        <h1 className="heading">Listened PodCasts</h1>
                     
                         <div className="count-pill">
-                            {watched.length}Movies
+                            {watched.length}Podcasts
                         </div>
                     </div>
 
                     {watched.length > 0 ?
                         (
                             <div className="movie-grid">
-                                {watched.map((watchedMovie) => (
-                                    <PodCastCard key={watchedMovie.id} movie={watchedMovie} type="watched" />
+                                {watched.map((watchedPodcast) => (
+                                    <PodCastCard key={watchedPodcast.id} movie={watchedPodcast} type="watched" />
                                 ))}
                             </div>
                         )

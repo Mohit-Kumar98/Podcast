@@ -7,7 +7,7 @@ import Listened from "./components/ListenedF/Listened";
 import Signup from './components/UsersF/Signup';
 import SignIn from './components/UsersF/SignIn';
 import FavList from './components/FavouriteListF/FavList'; 
-import Home from './components/Home';
+import Home from './components/home';
 import Alert from './components/Alert';
 
 

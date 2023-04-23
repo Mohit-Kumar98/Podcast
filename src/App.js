@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import './App.css';
-
-
+import { GlobalContext } from './context/GlobalState';
 // importing components
 import Header from './components/HeaderF/Header';
-import Footer from './components/FooterF/Footer';
 import List from './components/ListF/List';
+import ListenList from "./components/ListenListF/ListenList";
+import Listened from "./components/Listened";
 import Search from './components/SearchF/Search';
-
+import Signup from './components/UsersF/Signup';
+import SignIn from './components/UsersF/SignIn';
 // importing global provider
-import { GlobalProvider } from "./context/GlobalState";
+
 import PodCastSummary from "./components/PodCastSummary";
 
 function App() {
+  const context=useContext(GlobalContext);
+  const {input}=context;
   const [user, setUser] = useState(null);
 
   const handleLogin = (username, password) => {
@@ -27,22 +31,24 @@ function App() {
 
   return (
       <div>
+       {/* <Router> */}
+        {/* <Router> */}
         <Header user={user} onLogout={handleLogout} />
-         <Search/>
-          { input==="" && 
-          <>
-          <List/>
-          <List/>
-          <List/>
-          </>}
+        {/* <Search/> */}
+                 {/* {input==="" && 
+                  <>
+                  <List/>
+                  <List/>
+                  <List/>
+                  </>} */}
           <Routes>
             {/* <Route exact path="/" element={ <ListenList />} /> */}
             <Route exact path="/listened" element={ <Listened />}/>
-            <Route exact path="/podcast/:id" element={<Podcast />}/>
             <Route exact path="/signin/" element={<SignIn/>}/>  
             <Route exact path="/signup/" element={<Signup/>}/>
-            <Route exact path="/account" element={<Account user={user} onLogout={handleLogout} /> }/>
           </Routes>
+          {/* </Router> */}
+       {/* </Router> */}
       </div>
   );
 }

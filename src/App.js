@@ -1,25 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import React, { useState } from 'react';
 import './App.css';
-import { GlobalContext } from './context/GlobalState';
+
+
 // importing components
 import Header from './components/HeaderF/Header';
+import Footer from './components/FooterF/Footer';
 import List from './components/ListF/List';
-import ListenList from "./components/ListenListF/ListenList";
-import Listened from "./components/Listened";
-import Home from './containers/Home';
 import Search from './components/SearchF/Search';
-import Podcast from './containers/Podcast';
-import Account from './containers/Account';
-import Signup from './components/users/Signup';
-import SignIn from './components/users/SignIn';
-// importing global provider
 
+// importing global provider
+import { GlobalProvider } from "./context/GlobalState";
 import PodCastSummary from "./components/PodCastSummary";
 
 function App() {
-  const context=useContext(GlobalContext);
-  const {input}=context;
   const [user, setUser] = useState(null);
 
   const handleLogin = (username, password) => {
@@ -34,6 +27,7 @@ function App() {
 
   return (
       <div>
+<<<<<<< HEAD
         <Header user={user} onLogout={handleLogout} />
          <Search/>
           { input==="" && 
@@ -50,6 +44,15 @@ function App() {
             <Route exact path="/signup/" element={<Signup/>}/>
             <Route exact path="/account" element={<Account user={user} onLogout={handleLogout} /> }/>
           </Routes>
+=======
+        <GlobalProvider>
+        <Header user={user} onLogout={handleLogout} />
+        <Search/>
+        <List/>
+        <List/>
+        <List/>
+      </GlobalProvider>
+>>>>>>> 494bd8f7f3d71058c51cd46784391d743417f0a0
       </div>
   );
 }

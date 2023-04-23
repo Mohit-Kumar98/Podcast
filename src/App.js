@@ -27,14 +27,22 @@ function App() {
 
   return (
       <div>
-        <GlobalProvider>
         <Header user={user} onLogout={handleLogout} />
-        <Search/>
-        <List/>
-        <List/>
-        <List/>
-        <Footer/>
-      </GlobalProvider>
+         <Search/>
+          { input==="" && 
+          <>
+          <List/>
+          <List/>
+          <List/>
+          </>}
+          <Routes>
+            {/* <Route exact path="/" element={ <ListenList />} /> */}
+            <Route exact path="/listened" element={ <Listened />}/>
+            <Route exact path="/podcast/:id" element={<Podcast />}/>
+            <Route exact path="/signin/" element={<SignIn/>}/>  
+            <Route exact path="/signup/" element={<Signup/>}/>
+            <Route exact path="/account" element={<Account user={user} onLogout={handleLogout} /> }/>
+          </Routes>
       </div>
   );
 }

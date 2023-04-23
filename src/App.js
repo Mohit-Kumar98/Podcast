@@ -34,13 +34,13 @@ function App() {
        {/* <Router> */}
         {/* <Router> */}
         <Header user={user} onLogout={handleLogout} />
-        {/* <Search/> */}
-                 {/* {input==="" && 
+        <Search/>
+                {input==="" && 
                   <>
                   <List/>
                   <List/>
                   <List/>
-                  </>} */}
+                  </>}
           <Routes>
             {/* <Route exact path="/" element={ <ListenList />} /> */}
             <Route exact path="/listened" element={ <Listened />}/>

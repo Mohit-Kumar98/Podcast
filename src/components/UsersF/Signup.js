@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import './signup.css'
-export default function Signup() {
+import { useNavigate } from "react-router";
+export default function Signup(props) {
+  const [credentials, setCredentials] = useState({ email: "", password: "",name:"",cpassword:""});
+  let navigate = useNavigate();
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(credentials.password!==credentials.cpassword)
+    {
+      props.showAlert("Password and confirm Password are different!",'danger');
+    }
+    else{
+
+      const url = "API_URL";
+      const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password })
+    });
+    const json = await response.json()
+    console.log(json);
+    if (json.success) {
+      //redirect
+      
+      props.showAlert('Account Created Successfully','success');
+      localStorage.setItem('token', json.authToken);
+      navigate('/');
+    }
+    else {
+      props.showAlert(json.error,"danger");
+    }
+    }
+  }
   return (
     <section
       className="vh-100 bg-image"
@@ -20,7 +56,7 @@ export default function Signup() {
                       Sign up
                     </p>
 
-                    <form className="mx-1 mx-md-4">
+                    <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
                       <div className="d-flex flex-row align-items-center mb-4 input">
                         <i className="fas fa-user fa-lg me-3 fa-fw" style={{marginBottom : '10%'}}></i>
                         <div className="form-outline flex-fill mb-0">
@@ -28,6 +64,7 @@ export default function Signup() {
                             type="text"
                             id="form3Example1c"
                             className="form-control"
+                            onChange={onChange}
                           />
                           <label className="form-label" for="form3Example1c">
                             Your Name
@@ -42,6 +79,7 @@ export default function Signup() {
                             type="email"
                             id="form3Example3c"
                             className="form-control"
+                            onChange={onChange}
                           />
                           <label className="form-label" for="form3Example3c">
                             Your Email
@@ -56,6 +94,7 @@ export default function Signup() {
                             type="password"
                             id="form3Example4c"
                             className="form-control"
+                            onChange={onChange}
                           />
                           <label className="form-label" for="form3Example4c">
                             Password
@@ -70,6 +109,7 @@ export default function Signup() {
                             type="password"
                             id="form3Example4cd"
                             className="form-control"
+                            onChange={onChange}
                           />
                           <label className="form-label" for="form3Example4cd">
                             Repeat your password

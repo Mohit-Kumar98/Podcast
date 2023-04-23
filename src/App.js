@@ -11,10 +11,21 @@ import FavList from './components/FavouriteListF/FavList';
 
 // import PodCastSummary from "./components/PodCastSummary";
 import Home from './components/home';
+import Alert from './components/Alert';
 
 
 function App() {
   const [user, setUser] = useState(null);
+  const [alert, setAlert] = useState(null);
+  const showAlert=(message,type)=>{
+    setAlert({
+      msg:message,
+      type:type
+    })
+    setTimeout(()=>{
+      setAlert(null);
+    },1500);
+  }
 
   const handleLogin = (username, password) => {
     // Make API call to authenticate user
@@ -29,13 +40,14 @@ function App() {
   return (
       <div>
         <Header user={user} onLogout={handleLogout} />
+        <Alert alert={alert}/>
           <Routes>
-            <Route exact path="/" element={ <Home/>} />
-            <Route exact path="/home" element={ <Home/>} />
-            <Route exact path="/listened" element={ <Listened />}/>
-            <Route exact path="/watchlist" element={ <FavList />}/>
-            <Route exact path="/signin/" element={<SignIn/>}/>  
-            <Route exact path="/signup/" element={<Signup/>}/>
+            <Route exact path="/" element={ <Home showAlert={showAlert}/>} />
+            <Route exact path="/home" element={ <Home showAlert={showAlert} />} />
+            <Route exact path="/listened" element={ <Listened showAlert={showAlert} />}/>
+            <Route exact path="/watchlist" element={ <FavList showAlert={showAlert} />}/>
+            <Route exact path="/signin/" element={<SignIn showAlert={showAlert}/>}/>  
+            <Route exact path="/signup/" element={<Signup showAlert={showAlert}/>}/>
           </Routes>
       </div>
   );

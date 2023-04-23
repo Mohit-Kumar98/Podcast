@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import {Routes,Route} from 'react-router-dom';
 import './App.css';
 
 
 // importing components
 import Header from './components/HeaderF/Header';
+import Footer from './components/FooterF/Footer';
 import List from './components/ListF/List';
-import ListenList from "./components/ListenListF/ListenList";
-import Listened from "./components/Listened";
-import Home from './containers/Home';
 import Search from './components/SearchF/Search';
-import Podcast from './containers/Podcast';
-import Account from './containers/Account';
 
 // importing global provider
 import { GlobalProvider } from "./context/GlobalState";
@@ -38,14 +33,7 @@ function App() {
         <List/>
         <List/>
         <List/>
-        <Routes>
-          {/* <Route exact path="/" element={ <ListenList />} /> */}
-          <Route path="/listened" element={<Listened />} />
-          <Route path="/podcast/:id" element={<Podcast />}>
-          </Route>
-          <Route path="/account" element={<Account user={user} onLogout={handleLogout} /> }>
-          </Route>
-          </Routes>
+        <Footer />
       </GlobalProvider>
       </div>
   );

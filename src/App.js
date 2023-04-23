@@ -7,10 +7,8 @@ import Listened from "./components/ListenedF/Listened";
 import Signup from './components/UsersF/Signup';
 import SignIn from './components/UsersF/SignIn';
 import FavList from './components/FavouriteListF/FavList'; 
-// importing global provider
-
-// import PodCastSummary from "./components/PodCastSummary";
-import Home from './components/home';
+import Home from './components/Home';
+import Alert from './components/Alert';
 
 
 function App() {

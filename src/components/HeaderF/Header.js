@@ -45,7 +45,7 @@ const Header = () => {
           <ul className="nav-links">
             <li>
               <Link to="/watchlist" activeClassName="active">
-                WatchList{" "}
+                Favourite List{" "}
                 {watchlist.length > 0 ? (
                   <i class="fa-solid fa-tv" style={{ color: "gold" }}></i>
                 ) : (

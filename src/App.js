@@ -27,7 +27,6 @@ function App() {
 
   return (
       <div>
-<<<<<<< HEAD
         <Header user={user} onLogout={handleLogout} />
          <Search/>
           { input==="" && 
@@ -44,15 +43,6 @@ function App() {
             <Route exact path="/signup/" element={<Signup/>}/>
             <Route exact path="/account" element={<Account user={user} onLogout={handleLogout} /> }/>
           </Routes>
-=======
-        <GlobalProvider>
-        <Header user={user} onLogout={handleLogout} />
-        <Search/>
-        <List/>
-        <List/>
-        <List/>
-      </GlobalProvider>
->>>>>>> 494bd8f7f3d71058c51cd46784391d743417f0a0
       </div>
   );
 }

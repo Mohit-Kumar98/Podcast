@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieControls from './MovieControls'
+import MovieControls from '../MovieControls'
 
 import { Link } from "react-router-dom";
 

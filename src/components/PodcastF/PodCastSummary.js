@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 // import axios from 'axios';
 import { useParams } from "react-router-dom";
-import { GlobalContext } from '../context/GlobalState';
-import ProductionCompanies from './ProductionCompanies';
+import { GlobalContext } from '../../../context/GlobalState';
+import ProductionCompanies from '../../ProductionCompanies';
 
 const PodCastSummary = () => {
     const { watchlist, addToWatchList, removeFromWatchList } = useContext(GlobalContext);

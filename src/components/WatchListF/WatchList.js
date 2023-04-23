@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '../context/GlobalState'
-import PodCastCard from './PodCastCard'
+import { GlobalContext } from '../../context/GlobalState'
+import PodCastCard from '../PodcastF/PodCastCard'
 
 import { Link } from "react-router-dom";
 
-const Listened = () => {
+const WatchList = () => {
     const { watched } = useContext(GlobalContext)
     return (
         <>
@@ -41,4 +41,4 @@ const Listened = () => {
     )
 }
 
-export default Listened
+export default WatchList

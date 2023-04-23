@@ -1,29 +1,28 @@
 import React, { useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalState';
-import PodCastCard from '../PodcastF/PodCastCard';
+import { GlobalContext } from '../../context/GlobalState'
+import PodCastCard from '../PodcastF/PodCastCard'
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const ListenList = () => {
-    const { watchlist } = useContext(GlobalContext);
-
+const Listened = () => {
+    const { watched } = useContext(GlobalContext)
     return (
         <>
             <div className="movie-page">
                 <div className="container">
                     <div className="header">
-                        <h1 className="heading">My ListenList</h1>
-
+                        <h1 className="heading">Listened PodCasts</h1>
+                    
                         <div className="count-pill">
-                            {watchlist.length}Podcast
+                            {watched.length}Podcasts
                         </div>
                     </div>
 
-                    {watchlist.length > 0 ?
+                    {watched.length > 0 ?
                         (
                             <div className="movie-grid">
-                                {watchlist.map((wlist) => (
-                                    <PodCastCard key={wlist.id} podcast={wlist} type="watchlist" />
+                                {watched.map((watchedPodcast) => (
+                                    <PodCastCard key={watchedPodcast.id} movie={watchedPodcast} type="watched" />
                                 ))}
                             </div>
                         )
@@ -31,6 +30,7 @@ const ListenList = () => {
                         (
                             <>
                                 <h2 className="no-movies">No Podcast in your list, add some!</h2>
+                                <button className="btn"><Link to="/">ListenList</Link></button>
                             </>
                         )
                     }
@@ -41,4 +41,4 @@ const ListenList = () => {
     )
 }
 
-export default ListenList
+export default Listened

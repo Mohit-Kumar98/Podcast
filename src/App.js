@@ -33,6 +33,7 @@ function App() {
         <List/>
         <List/>
         <List/>
+        <Footer/>
       </GlobalProvider>
       </div>
   );

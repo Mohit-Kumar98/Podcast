@@ -43,8 +43,7 @@ const List = ({list}) => {
             <ListItem />
             <ListItem />
             <ListItem />
-            <ListItem />
-            <ListItem />
+            
         </div>
         <ArrowForwardIosOutlined className='sliderArrow right' onClick={()=>{handleClick("right")}}/>
       </div>

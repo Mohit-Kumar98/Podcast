@@ -10,7 +10,7 @@ import WatchList from './components/WatchListF/WatchList';
 // importing global provider
 
 // import PodCastSummary from "./components/PodCastSummary";
-import Home from './components/home';
+import Home from './components/Home';
 
 
 function App() {

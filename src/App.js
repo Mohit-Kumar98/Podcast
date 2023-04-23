@@ -9,6 +9,7 @@ import SignIn from './components/UsersF/SignIn';
 import FavList from './components/FavouriteListF/FavList'; 
 import Home from './components/Home';
 import Alert from './components/Alert';
+import UserProfile from './components/UserProfileF/UserProfile';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/watchlist" element={ <FavList showAlert={showAlert} />}/>
             <Route exact path="/signin/" element={<SignIn showAlert={showAlert}/>}/>  
             <Route exact path="/signup/" element={<Signup showAlert={showAlert}/>}/>
+            <Route exact path="/profile/" element={<UserProfile showAlert={showAlert}/>}/>
           </Routes>
       </div>
   );

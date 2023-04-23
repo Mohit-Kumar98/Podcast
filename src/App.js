@@ -6,7 +6,7 @@ import Header from './components/HeaderF/Header';
 import Listened from "./components/ListenedF/Listened";
 import Signup from './components/UsersF/Signup';
 import SignIn from './components/UsersF/SignIn';
-import WatchList from './components/WatchListF/WatchList'; 
+import WatchList from './components/FavouriteListF/FavList'; 
 // importing global provider
 
 // import PodCastSummary from "./components/PodCastSummary";

@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
-import Listened from "../ListenedF/Listened";
+// import Listened from "../ListenedF/Listened";
 
 import './Header.css';
 
@@ -44,7 +44,7 @@ const Header = () => {
 
           <ul className="nav-links">
             <li>
-              <Link to="/watchList" activeClassName="active">
+              <Link to="/watchlist" activeClassName="active">
                 WatchList{" "}
                 {watchlist.length > 0 ? (
                   <i class="fa-solid fa-tv" style={{ color: "gold" }}></i>

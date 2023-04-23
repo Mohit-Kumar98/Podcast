@@ -34,16 +34,14 @@ function App() {
 
   return (
       <div>
-       {/* <Router> */}
-        {/* <Router> */}
         <Header user={user} onLogout={handleLogout} />
-        {/* <Search/> */}
-                 {/* {input==="" && 
-                  <>
-                  <List/>
-                  <List/>
-                  <List/>
-                  </>} */}
+         <Search/>
+          { input==="" && 
+          <>
+          <List/>
+          <List/>
+          <List/>
+          </>}
           <Routes>
             {/* <Route exact path="/" element={ <ListenList />} /> */}
             <Route exact path="/listened" element={ <Listened />}/>
@@ -52,8 +50,6 @@ function App() {
             <Route exact path="/signup/" element={<Signup/>}/>
             <Route exact path="/account" element={<Account user={user} onLogout={handleLogout} /> }/>
           </Routes>
-          {/* </Router> */}
-       {/* </Router> */}
       </div>
   );
 }
